@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html class="h-100">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ℍ - Quatérnios</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="h-100">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="index.html">ℍ - Quatérnios</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown active">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Cenas
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="cubo.html">Cubo</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="rotacao.html">Rotação da Lua</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="content">
+        <div id="container"></div>
+        <div class="row">
+            <pre>
+
+                // criar uma cena
+                var scene = new THREE.Scene();
+                
+                // criar uma nova câmera a partir dos seguintes parâmetros
+                // 1º parâmetro: campo de visão, extensão da cena em degraus
+                // 2° parâmetro: resolução da câmera
+                // 3° parâmetro: plano de recorte próximo
+                // 4° parâmetro: plano de recorte distante
+                var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+                
+                // criar um renderizador WebGL
+                var renderer = new THREE.WebGLRenderer();
+                
+                // configurar resolução do renderizador (largura e altura são as dimensões da janela do navegador)
+                renderer.setSize(window.innerWidth, window.innerHeight);
+                
+                // adicionar o renderizador ao elemento da página HTML que possui id="container"
+                // o renderizador usa um elemento canvas para exibir a cena
+                container.appendChild(renderer.domElement);
+                
+                // criar uma forma geométrica com pontos (vértices) e preenchimento (faces)
+                var geometry = new THREE.BoxGeometry(1, 1, 1);
+                
+                // criar um material para colorir o objeto
+                var material = new THREE.MeshBasicMaterial({
+                    color: 0x00ff80,
+                });
+                
+                // criar um cubo com forma geométrica e material
+                var cube = new THREE.Mesh(geometry, material);
+                
+                // adicionar o cubo a cena
+                scene.add(cube);
+                
+                // posicionar a câmera
+                camera.position.z = 5;
+                
+                // criar função para rotacionar o cubo continuamente (loop)
+                // o objeto é rotacionado 60 vezes por segundo após a renderização da cena
+                var animate = function () {
+                    requestAnimationFrame(animate);
+                    cube.rotation.x += 0.01;
+                    cube.rotation.y += 0.01;
+                    renderer.render(scene, camera);
+                };
+                
+                // animar a cena
+                animate();
+                            
+            </pre>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/three.js"></script>
+    <script src="js/cubo.js"></script>
+
+    <!-- Scripts Bootstrap -->
+    <script src="js/lib/jquery-3.3.1.slim.min.js"></script>
+    <script src="js/lib/popper.min.js"></script>
+    <script src="js/lib/bootstrap.min.js"></script>
+    
+</body>
+
+</html>

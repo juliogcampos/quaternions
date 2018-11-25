@@ -1,5 +1,6 @@
 body {
-  background: #000;
+  overflow-x: hidden;
+  background: black;
 }
 
 canvas {
@@ -7,8 +8,21 @@ canvas {
   height: 100%;
 }
 
+.label {
+  color: #fff;
+  font-size: 20px;
+}
+
 h5 {
   line-height: 1.3em;
+}
+
+pre {
+  margin: 0;
+  width: 100%;
+  background: #252525;
+  color: #fff;
+  font-size: 110%;
 }
 
 .bg-gradient-blue {

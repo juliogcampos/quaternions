@@ -7,7 +7,7 @@ var scene = new THREE.Scene();
 // 2° parâmetro: resolução da câmera
 // 3° parâmetro: plano de recorte próximo
 // 4° parâmetro: plano de recorte distante
-var camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 1000);
+var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
 
 // criar um renderizador WebGL
 var renderer = new THREE.WebGLRenderer();
@@ -15,9 +15,9 @@ var renderer = new THREE.WebGLRenderer();
 // configurar resolução do renderizador (largura e altura são as dimensões da janela do navegador)
 renderer.setSize(window.innerWidth, window.innerHeight);
 
-// adicionar o renderizador ao corpo da página HTML
+// adicionar o renderizador ao elemento da página HTML que possui id="container"
 // o renderizador usa um elemento <canvas> para exibir a cena
-document.body.appendChild(renderer.domElement);
+container.appendChild(renderer.domElement);
 
 // criar uma forma geométrica com pontos (vértices) e preenchimento (faces)
 var geometry = new THREE.BoxGeometry(1, 1, 1);
