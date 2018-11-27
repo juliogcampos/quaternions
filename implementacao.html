@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html class="h-100">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ℍ - Quatérnios</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="h-100">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="index.html">ℍ - Quatérnios</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+				<li class="nav-item active">
+					<a class="nav-link" href="implementacao.html">Implementação <span class="sr-only">(current)</span></a>
+				</li>
+                <li class="nav-item dropdown active">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Cenas
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="cubo.html">Cubo</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="rotacao.html">Rotação da Lua</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+	
+    <div class="content h-100 bg-gradient-blue">
+		
+		<div class="container text-white">
+		
+		<h1> Implementação </h1>
+		
+			<div class="row">
+				<div class="col-md-12">
+					<label>Quatérnio</label>
+					<textarea class="form-control" id="quaternion"></textarea>
+					
+					<label>Vetor</label>
+					<textarea class="form-control" id="vector"></textarea>
+				</div>
+			</div>
+		</div>
+
+			
+        <div class="row">
+            <pre>
+				
+
+                            
+            </pre>
+        </div>
+    </div>
+
+    <!-- Scripts Three.js -->
+    <script src="js/lib/three/three.js"></script>
+    <script src="js/implementacao.js"></script>
+
+    <!-- Scripts Bootstrap -->
+    <script src="js/lib/jquery-3.3.1.slim.min.js"></script>
+    <script src="js/lib/popper.min.js"></script>
+    <script src="js/lib/bootstrap.min.js"></script>
+
+</body>
+
+</html>

@@ -25,6 +25,11 @@ pre {
   font-size: 110%;
 }
 
+textarea {
+	height: 160px !important;
+	margin-bottom: 20px;
+}
+
 .bg-gradient-blue {
   background: linear-gradient(#252525, #ebf8e1, rgb(151, 226, 207), #252525);
 }
