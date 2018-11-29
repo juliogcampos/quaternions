@@ -77,7 +77,8 @@ function init() {
     var earthDiv = document.createElement('div');
     earthDiv.className = 'label';
     earthDiv.textContent = 'Terra';
-    earthDiv.style.marginTop = '10em';
+    earthDiv.style.marginTop = '1em';
+    earthDiv.style.background = 'black';
 
     // criar renderizador CSS2D para a div terra
     // definir posição e adicionar ao objeto terra
@@ -121,6 +122,9 @@ function init() {
 
     // posicionar no topo o renderizador
     labelRenderer.domElement.style.top = 0;
+
+    // setar no css o z-index da nav para 100 para sobrepor a div container
+    labelRenderer.domElement.style.zIndex = 0; 
 
     // adicionar renderizador a div container no HTML
     container.appendChild(labelRenderer.domElement);

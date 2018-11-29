@@ -44,6 +44,8 @@
             <pre>
                 <code class="javascript hljs">
 
+                    /* CÓDIGO */
+
                     // declaração de variáveis
                     var camera, scene, renderer, labelRenderer, earth, moon;
                     
@@ -123,9 +125,8 @@
                         var earthDiv = document.createElement('div');
                         earthDiv.className = 'label';
                         earthDiv.textContent = 'Terra';
-                        earthDiv.style.marginTop = '10em';
-                        earthDiv.style.color = '#fff';
-                        earthDiv.style.fontSize = '20px';
+                        earthDiv.style.marginTop = '1em';
+                        earthDiv.style.background = 'black';
                     
                         // criar renderizador CSS2D para a div terra
                         // definir posição e adicionar ao objeto terra
@@ -139,8 +140,6 @@
                         moonDiv.className = 'label';
                         moonDiv.textContent = 'Lua';
                         moonDiv.style.marginTop = '1em';
-                        moonDiv.style.color = '#fff';
-                        moonDiv.style.fontSize = '20px';
                     
                         // criar renderizador CSS2D para a div lua
                         // definir posição e adicionar ao objeto lua
@@ -171,6 +170,9 @@
                     
                         // posicionar no topo o renderizador
                         labelRenderer.domElement.style.top = 0;
+                    
+                        // setar no css o z-index da nav para 100 para sobrepor a div container
+                        labelRenderer.domElement.style.zIndex = 0; 
                     
                         // adicionar renderizador a div container no HTML
                         container.appendChild(labelRenderer.domElement);
