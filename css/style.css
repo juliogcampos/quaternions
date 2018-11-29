@@ -20,14 +20,12 @@ h5 {
 pre {
   margin: 0;
   width: 100%;
-  background: #252525;
-  color: #fff;
   font-size: 110%;
 }
 
 textarea {
-	height: 160px !important;
-	margin-bottom: 20px;
+  height: 160px !important;
+  margin-bottom: 20px;
 }
 
 .bg-gradient-blue {

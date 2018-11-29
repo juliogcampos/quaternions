@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>ℍ - Quatérnios</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/highlight.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -19,9 +20,9 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-				<li class="nav-item active">
-					<a class="nav-link" href="implementacao.html">Implementação <span class="sr-only">(current)</span></a>
-				</li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="implementacao.html">Implementação <span class="sr-only">(current)</span></a>
+                </li>
                 <li class="nav-item dropdown active">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
@@ -41,56 +42,58 @@
         <div id="container"></div>
         <div class="row">
             <pre>
+                <code class="javascript hljs">
+                    /* CÓDIGO */
 
-                // criar uma cena
-                var scene = new THREE.Scene();
-                
-                // criar uma nova câmera a partir dos seguintes parâmetros
-                // 1º parâmetro: campo de visão, extensão da cena em degraus
-                // 2° parâmetro: resolução da câmera
-                // 3° parâmetro: plano de recorte próximo
-                // 4° parâmetro: plano de recorte distante
-                var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
-                
-                // criar um renderizador WebGL
-                var renderer = new THREE.WebGLRenderer();
-                
-                // configurar resolução do renderizador (largura e altura são as dimensões da janela do navegador)
-                renderer.setSize(window.innerWidth, window.innerHeight);
-                
-                // adicionar o renderizador ao elemento da página HTML que possui id="container"
-                // o renderizador usa um elemento canvas para exibir a cena
-                container.appendChild(renderer.domElement);
-                
-                // criar uma forma geométrica com pontos (vértices) e preenchimento (faces)
-                var geometry = new THREE.BoxGeometry(1, 1, 1);
-                
-                // criar um material para colorir o objeto
-                var material = new THREE.MeshBasicMaterial({
-                    color: 0x00ff80,
-                });
-                
-                // criar um cubo com forma geométrica e material
-                var cube = new THREE.Mesh(geometry, material);
-                
-                // adicionar o cubo a cena
-                scene.add(cube);
-                
-                // posicionar a câmera
-                camera.position.z = 5;
-                
-                // criar função para rotacionar o cubo continuamente (loop)
-                // o objeto é rotacionado 60 vezes por segundo após a renderização da cena
-                var animate = function () {
-                    requestAnimationFrame(animate);
-                    cube.rotation.x += 0.01;
-                    cube.rotation.y += 0.01;
-                    renderer.render(scene, camera);
-                };
-                
-                // animar a cena
-                animate();
-                            
+                    // criar uma cena
+                    var scene = new THREE.Scene();
+                    
+                    // criar uma nova câmera a partir dos seguintes parâmetros
+                    // 1º parâmetro: campo de visão, extensão da cena em degraus
+                    // 2° parâmetro: resolução da câmera
+                    // 3° parâmetro: plano de recorte próximo
+                    // 4° parâmetro: plano de recorte distante
+                    var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+                    
+                    // criar um renderizador WebGL
+                    var renderer = new THREE.WebGLRenderer();
+                    
+                    // configurar resolução do renderizador (largura e altura são as dimensões da janela do navegador)
+                    renderer.setSize(window.innerWidth, window.innerHeight);
+                    
+                    // adicionar o renderizador ao elemento da página HTML que possui id="container"
+                    // o renderizador usa um elemento canvas para exibir a cena
+                    container.appendChild(renderer.domElement);
+                    
+                    // criar uma forma geométrica com pontos (vértices) e preenchimento (faces)
+                    var geometry = new THREE.BoxGeometry(1, 1, 1);
+                    
+                    // criar um material para colorir o objeto
+                    var material = new THREE.MeshBasicMaterial({
+                        color: 0x00ff80,
+                    });
+                    
+                    // criar um cubo com forma geométrica e material
+                    var cube = new THREE.Mesh(geometry, material);
+                    
+                    // adicionar o cubo a cena
+                    scene.add(cube);
+                    
+                    // posicionar a câmera
+                    camera.position.z = 5;
+                    
+                    // criar função para rotacionar o cubo continuamente (loop)
+                    // o objeto é rotacionado 60 vezes por segundo após a renderização da cena
+                    var animate = function () {
+                        requestAnimationFrame(animate);
+                        cube.rotation.x += 0.01;
+                        cube.rotation.y += 0.01;
+                        renderer.render(scene, camera);
+                    };
+                    
+                    // animar a cena
+                    animate();
+            </code>
             </pre>
         </div>
     </div>
@@ -103,7 +106,11 @@
     <script src="js/lib/jquery-3.3.1.slim.min.js"></script>
     <script src="js/lib/popper.min.js"></script>
     <script src="js/lib/bootstrap.min.js"></script>
-    
+
+    <!-- Scripts Highlight -->
+    <script src="js/lib/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
 </body>
 
 </html>
