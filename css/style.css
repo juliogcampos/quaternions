@@ -17,8 +17,8 @@ canvas {
   font-size: 20px;
 }
 
-h5 {
-  line-height: 1.3em;
+h4 {
+  line-height: 1.4em;
 }
 
 pre {
@@ -30,6 +30,10 @@ pre {
 textarea {
   height: 160px !important;
   margin-bottom: 20px;
+}
+
+.bg-gradient-green {
+  background: linear-gradient(#252525, #ebf8e1, rgb(151, 226, 153), #252525);
 }
 
 .bg-gradient-blue {
