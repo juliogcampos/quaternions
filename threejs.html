@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html class="h-100">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ℍ - Quatérnios</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/highlight.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="h-100">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="index.html">ℍ - Quatérnios</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="gimbal_lock.html">Gimbal Lock<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="threejs.html">Three.js<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item dropdown active">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Cenas
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="cubo.html">Cubo</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="rotacao.html">Rotação da Lua</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="carouselExampleControls" class="carousel slide bg-gradient-green" data-ride="none">
+        <div class="carousel-inner h-100">
+            <div class="carousel-item active h-100">
+                <div class="carousel-caption">
+                    <h1 class="display-3">Three.js</h1>
+                </div>
+            </div>
+            <div class="carousel-item h-100">
+                <div class="carousel-caption">
+                    <h3 class="text-justify">
+                        A biblioteca Three.js permite a criação de animações 3D aceleradas
+                        por GPU (Unidade de Processamento Gráfico).
+                        Desenvolvida em linguagem JavaScript, não depende de plug-ins de
+                        navegador proprietários.
+                    </h3>
+                </div>
+            </div>
+            <div class="carousel-item h-100">
+                <div class="carousel-caption">
+                    <h3 class="text-justify">
+                        Isso é possível graças ao advento da WebGL (Web Graphics Library),
+                        uma API em JavaScript disponível a partir do novo elemento
+                        canvas do HTML5. A Three.js pode renderizar animações usando Canvas,
+                        SVG e WebGL.
+                    </h3>
+                </div>
+            </div>
+            <div class="carousel-item h-100">
+                <div class="carousel-caption">
+                    <h3 class="text-justify">
+                        A Three.js possui recursos como efeitos, cenas, câmeras, controladores,
+                        animações, luzes, sombras, materiais, objetos, modificadores, carregadores
+                        de dados, entre outros.
+                    </h3>
+                </div>
+            </div>
+            <div class="carousel-item h-100">
+                <div class="carousel-caption">
+                    <h1>
+                        <a class="badge badge-dark p-4" href="#implementacao">Implementação</a>
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+    <div class="container text-light" id="implementacao">
+        <h1 class="display-4 text-light pt-5 pb-5">Implementação</h1>
+
+        <div class="row">
+            <pre>
+                <code class="javascript hljs">
+                    // criar um quatérnio
+                    var quaternion = new THREE.Quaternion();
+                    
+                    // definir rotação do quatérnio por um eixo e ângulo
+                    // o eixo é considerado normalizado, o ângulo é dado em radianos
+                    // o eixo y foi definido para a rotação
+                    quaternion.setFromAxisAngle(new THREE.Vector3(0, 1, 0), Math.PI / 2);
+                    
+                    // criar um vetor 3D (x,y,z) e aplicar rotação
+                    var vector = new THREE.Vector3(1, 0, 0);
+                    vector.applyQuaternion(quaternion);
+                    
+                    document.getElementById("quaternion").innerHTML = JSON.stringify(quaternion, null, "	");
+                    document.getElementById("vector").innerHTML = JSON.stringify(vector, null, "	");
+                </code>
+            </pre>
+
+            <div class="col-md-6">
+                <h4 class="text-light">quaternion</h4>
+                <textarea class="form-control" id="quaternion"></textarea>
+            </div>
+
+            <div class="col-md-6">
+                <h4 class="text-light">vector</h4>
+                <textarea class="form-control" id="vector"></textarea>
+            </div>
+        </div>
+
+        <h1 class="display-4 text-light pt-5 pb-5">THREE.Quaternion()</h1>
+
+        <div class="row">
+
+        </div>
+
+    </div>
+
+    <!-- Scripts Three.js -->
+    <script src="js/lib/three/three.js"></script>
+    <script src="js/threejs.js"></script>
+
+    <!-- Scripts Bootstrap -->
+    <script src="js/lib/jquery-3.3.1.slim.min.js"></script>
+    <script src="js/lib/popper.min.js"></script>
+    <script src="js/lib/bootstrap.min.js"></script>
+
+    <!-- Scripts Highlight -->
+    <script src="js/lib/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+
+</html>

@@ -20,10 +20,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="implementacao.html">Implementação <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="gimbal_lock.html">Gimbal Lock<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="gimbal_lock.html">Gimbal Lock <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="threejs.html">Three.js<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item dropdown active">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -60,45 +60,25 @@
             <div class="carousel-item h-100">
                 <div class="carousel-caption">
                     <h3 class="text-justify">
-                        Uma de suas principais aplicações é a rotação de vetores em 3D.
-                        Os quatérnios também possuem aplicações na computação gráfica,
+                        Os quatérnios possuem aplicações na computação gráfica,
                         na robótica e em qualquer coisa que envolva realidade virtual.
                     </h3>
                 </div>
             </div>
             <div class="carousel-item h-100">
                 <div class="carousel-caption">
-                    <h1 class="display-3">Three.js</h1>
-                </div>
-            </div>
-            <div class="carousel-item h-100">
-                <div class="carousel-caption">
                     <h3 class="text-justify">
-                        A biblioteca Three.js permite a criação de animações 3D aceleradas
-                        por GPU (Unidade de Processamento Gráfico).
-                        Desenvolvida em linguagem JavaScript, não depende de plug-ins de
-                        navegador proprietários.
+                        Uma de suas principais aplicações é a rotação de vetores em 3D.
+                        Eles permitem girar objetos sem provocar o temido problema de bloqueio
+                        do cardan (gimbal lock).
                     </h3>
                 </div>
             </div>
             <div class="carousel-item h-100">
                 <div class="carousel-caption">
-                    <h3 class="text-justify">
-                        Isso é possível graças ao advento da WebGL (Web Graphics Library),
-                        uma API em JavaScript disponível a partir do novo elemento
-                        canvas do HTML5. A Three.js pode renderizar animações usando Canvas,
-                        SVG e WebGL.
-                    </h3>
-                </div>
-            </div>
-            <div class="carousel-item h-100">
-                <div class="carousel-caption">
-                    <h3 class="text-justify">
-                        A Three.js possui recursos como efeitos, cenas, câmeras, controladores,
-                        animações, luzes, sombras, materiais, objetos, modificadores, carregadores
-                        de dados, entre outros. Possui mais de 150 exemplos de codificação,
-                        além de fontes, modelos, texturas, sons e outros arquivos de suporte.
-                    </h3>
+                    <h1>
+                        <a class="badge badge-dark p-4" href="gimbal_lock.html">Gimbal Lock</a>
+                    </h1>
                 </div>
             </div>
         </div>
@@ -112,11 +92,19 @@
         </a>
     </div>
 
-
     <!-- Scripts -->
+    <script src="js/lib/three/three.js"></script>
+    <script src="js/cubo.js"></script>
+
+    <!-- Scripts Bootstrap -->
     <script src="js/lib/jquery-3.3.1.slim.min.js"></script>
     <script src="js/lib/popper.min.js"></script>
     <script src="js/lib/bootstrap.min.js"></script>
+
+    <!-- Scripts Highlight -->
+    <script src="js/lib/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
 </body>
 
 </html>
