@@ -17,6 +17,12 @@ nav {
   margin: 0 auto;
 }
 
+.top {
+  padding: 0;
+  top: 30%;
+  margin: 0 auto;
+}
+
 canvas {
   width: 100%;
   height: 100%;

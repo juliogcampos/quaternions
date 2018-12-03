@@ -50,16 +50,94 @@
             <div class="carousel-item active h-100">
                 <div class="carousel-caption">
                     <h1 class="display-3">Gimbal Lock</h1>
-                    <h4 class="font-italic">Bloqueio do Cardan</h4>
+                    <h4 class="font-italic">Trava Gimbal</h4>
+                </div>
+            </div>
+            <div class="carousel-item h-100">
+                <div class="carousel-caption">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <h3 class="text-justify">
+                                Uma gimbal é um anel suspenso de modo que possa girar em um eixo. Gimbals são
+                                normalmente
+                                aninhadas uma dentro da outra para acomodar rotação em torno de vários eixos.
+                            </h3>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card">
+                                <img class="card-img-top" src="img/gimbal_3_axes_rotation.gif" alt="Gimbals com três eixos de rotação">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item h-100">
+                <div class="carousel-caption top">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h3 class="text-justify">
+                                Gimbal lock (do inglês "trava gimbal") é a perda de um grau de liberdade em um
+                                mecanismo tridimensional que ocorre quando os eixos de duas das gimbals são levados a
+                                uma configuração paralela, "travando" o sistema de forma que só possa girar em um
+                                espaço
+                                bidimensional.
+                            </h3>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card">
+                                <img class="card-img-top" src="img/no_gimbal_lock.png" alt="Sem ocorrência de trava gimbal">
+                                <div class="card-body text-left text-dark">
+                                    <h6 class="card-title">Situação normal</h6>
+                                    <p class="card-text">As três gimbals são independentes.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card">
+                                <img class="card-img-top" src="img/gimbal_lock.png" alt="Ocorrência de trava gimbal">
+                                <div class="card-body text-left text-dark">
+                                    <h6 class="card-title">Gimbal lock</h6>
+                                    <p class="card-text">Duas das três gimbals estão no mesmo plano.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="carousel-item h-100">
                 <div class="carousel-caption">
                     <h3 class="text-justify">
-
-                        http://www2.ic.uff.br/~aconci/CG-Aula16-2016.pdf
-                        http://webserver2.tecgraf.puc-rio.br/~mgattass/LivroCG/06_Transformacoes_Geometricas_e_Quaternios.pdf
+                        A palavra "lock," que significa "trava" é enganosa: a gimbal não está travada.
+                        Todas as três gimbals ainda podem girar livremente em seus respectivos eixos
+                        de suspensão. No entanto, por causa da orientação paralela de dois dos
+                        eixos, não há gimbals disponíveis para acomodar a rotação ao longo de um dos eixos.
                     </h3>
+                </div>
+            </div>
+            <div class="carousel-item h-100">
+                <div class="carousel-caption">
+                    <h3 class="text-justify">
+                        O problema da gimbal lock aparece quando se usa ângulos de Euler em matemática aplicada,
+                        programas de modelagem 3D, sistemas de navegação
+                        inercial e jogos eletrônicos.
+                    </h3>
+                </div>
+            </div>
+            <div class="carousel-item h-100">
+                <div class="carousel-caption">
+                    <h3 class="text-justify">
+                        A causa da gimbal lock é representar orientação como três rotações, usando ângulos de
+                        Euler. Uma solução para o problema é representar a orientação com uma matriz de rotação, um
+                        quatérnio, ou outra representação similar, que trate a
+                        orientação como um valor, em vez de três valores separados e relacionados.
+                    </h3>
+                </div>
+            </div>
+            <div class="carousel-item h-100">
+                <div class="carousel-caption">
+                    <h1>
+                        <a class="badge badge-dark p-4" href="threejs.html">Three.js</a>
+                    </h1>
                 </div>
             </div>
         </div>
