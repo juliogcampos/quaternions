@@ -52,67 +52,73 @@
         </div>
     </nav>
 
-    <div class="row" id="container"></div>
+    <div id="container"></div>
 
     <pre>
         <code class="javascript hljs">
 
             /* CÓDIGO */
 
-            if (WEBGL.isWebGLAvailable() === false) {
-                document.body.appendChild(WEBGL.getWebGLErrorMessage());
-            }
-            
-            var camera, scene, renderer, video;
+            var camera, controls;
+            var renderer;
+            var scene;
             
             init();
             animate();
             
             function init() {
-                camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 100);
-                camera.position.z = 0.01;
-                scene = new THREE.Scene();
-            
-                video = document.getElementById('video');
-                var texture = new THREE.VideoTexture(video);
-                var geometry = new THREE.PlaneBufferGeometry(16, 9);
-                geometry.scale(0.5, 0.5, 0.5);
-            
-                var material = new THREE.MeshBasicMaterial({ map: texture });
-                var count = 128;
-                var radius = 32;
-            
-                for (var i = 1, l = count; i <= l; i++) {
-                    var phi = Math.acos(- 1 + (2 * i) / l);
-                    var theta = Math.sqrt(l * Math.PI) * phi;
-                    var mesh = new THREE.Mesh(geometry, material);
-                    mesh.position.setFromSphericalCoords(radius, phi, theta);
-                    mesh.lookAt(camera.position);
-                    scene.add(mesh);
-                }
-            
-                renderer = new THREE.WebGLRenderer({ antialias: true });
+                var container = document.getElementById('container');
+                renderer = new THREE.WebGLRenderer();
                 renderer.setPixelRatio(window.devicePixelRatio);
                 renderer.setSize(window.innerWidth, window.innerHeight);
-                document.body.appendChild(renderer.domElement);
+                container.appendChild(renderer.domElement);
             
-                var controls = new THREE.OrbitControls(camera, renderer.domElement);
+                scene = new THREE.Scene();
+                camera = new THREE.PerspectiveCamera(90, window.innerWidth / window.innerHeight, 0.1, 100);
+                camera.position.z = 0.01;
+            
+                controls = new THREE.OrbitControls(camera, renderer.domElement);
                 controls.enableZoom = false;
                 controls.enablePan = false;
-                window.addEventListener('resize', onWindowResize, false);
+                controls.enableDamping = true;
+                controls.rotateSpeed = - 0.25;
             
-                if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-                    var constraints = { video: { width: 1280, height: 720, facingMode: 'user' } };
-                    navigator.mediaDevices.getUserMedia(constraints).then(function (stream) {
-                        // apply the stream to the video element used in the texture
-                        video.srcObject = stream;
-                        video.play();
-                    }).catch(function (error) {
-                        console.error('Unable to access the camera/webcam.', error);
-                    });
-                } else {
-                    console.error('MediaDevices interface not available.');
+                var textures = getTexturesFromAtlasFile("img/sun_temple_stripe.jpg", 6);
+                var materials = [];
+            
+                for (var i = 0; i < 6; i++) {
+                    materials.push(new THREE.MeshBasicMaterial({ map: textures[i] }));
                 }
+            
+                var skyBox = new THREE.Mesh(new THREE.BoxBufferGeometry(1, 1, 1), materials);
+                skyBox.geometry.scale(1, 1, - 1);
+                scene.add(skyBox);
+                window.addEventListener('resize', onWindowResize, false);
+            }
+            
+            function getTexturesFromAtlasFile(atlasImgUrl, tilesNum) {
+                var textures = [];
+            
+                for (var i = 0; i < tilesNum; i++) {
+                    textures[i] = new THREE.Texture();
+                }
+            
+                var imageObj = new Image();
+                imageObj.onload = function () {
+                    var canvas, context;
+                    var tileWidth = imageObj.height;
+                    for (var i = 0; i < textures.length; i++) {
+                        canvas = document.createElement('canvas');
+                        context = canvas.getContext('2d');
+                        canvas.height = tileWidth;
+                        canvas.width = tileWidth;
+                        context.drawImage(imageObj, tileWidth * i, 0, tileWidth, tileWidth, 0, 0, tileWidth, tileWidth);
+                        textures[i].image = canvas;
+                        textures[i].needsUpdate = true;
+                    }
+                };
+                imageObj.src = atlasImgUrl;
+                return textures;
             }
             
             function onWindowResize() {
@@ -123,6 +129,7 @@
             
             function animate() {
                 requestAnimationFrame(animate);
+                controls.update(); // required when damping is enabled
                 renderer.render(scene, camera);
             }
                 
@@ -135,13 +142,10 @@
         </a>
     </h4>
 
-    <video id="video" autoplay style="display:none"></video>
-
     <!-- Scripts Three.js -->
     <script src="js/lib/three/three.js"></script>
     <script src="js/lib/three/controls/OrbitControls.js"></script>
-    <script src="js/lib/three/WebGL.js"></script>
-    <script src="js/webcam.js"></script>
+    <script src="js/panorama.js"></script>
 
     <!-- Scripts Bootstrap -->
     <script src="js/lib/jquery-3.3.1.slim.min.js"></script>
