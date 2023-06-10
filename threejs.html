@@ -27,8 +27,8 @@
                     <a class="nav-link" href="threejs.html">Three.js</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Cenas
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -107,7 +107,7 @@
     </div>
 
     <div class="container text-light" id="implementacao">
-        <h1 class="display-4 text-light pt-5 pb-5">Implementação de Um Quatérnio</h1>
+        <h1 class="display-4 text-light pt-5 pb-5">Implementação de um Quatérnio</h1>
 
         <div class="row">
             <pre>
@@ -167,66 +167,66 @@
         <p class="lead">
             Os principais métodos da classe são: <br><br>
 
-            <ul class="lead">
-                <li>
-                    <span class="text-warning">angleTo (q : Quaternion)</span>:
-                    Retorna o ângulo entre um quatérnio e outro quatérnio q em radianos
-                </li>
-                <li>
-                    <span class="text-warning">clone()</span>:
-                    Cria um novo quatérnio com as mesmas propriedades de outro
-                </li>
-                <li>
-                    <span class="text-warning">conjugate()</span>:
-                    Retorna o conjugado rotacional de um quaternion,
-                    ou seja, a mesma rotação no sentido oposto sobre o eixo rotatório.
-                </li>
-                <li>
-                    <span class="text-warning">equals (v : Quaternion)</span>:
-                    Compara as propriedades x, y, z e w com as de outro quatérnio v
-                    para determinar se eles representam a mesma rotação.
-                </li>
-                <li>
-                    <span class="text-warning">length()</span>:
-                    Calcula o comprimento euclidiano (comprimento em linha reta)
-                    de um quaternion, considerado como um vetor de quatro dimensões
-                </li>
-                <li>
-                    <span class="text-warning">normalize()</span>:
-                    Normaliza um quatérnio, isto é, calcula o quatérnio
-                    que executa a mesma rotação que a dele, mas tem o comprimento igual a 1.
-                </li>
-                <li>
-                    <span class="text-warning">multiplyQuaternions (a: Quaternion , b: Quaternion)</span>:
-                    Realiza a multiplicação entre dois quatérnios.
-                </li>
-                <li>
-                    <span class="text-warning">setFromRotationMatrix (m : Matrix4)</span>:
-                    Define o componente de rotação do quatérnio a partir de uma matriz m .
-                </li>
-                <li>
-                    <span class="text-warning">setFromUnitVectors (vFrom: Vector3 , vTo: Vector3)</span>:
-                    Define o quatérnio de rotação necessária para
-                    girar o vetor de direção vFrom para o vetor de direção vTo .
-                </li>
-                <li>
-                    <span class="text-warning">slerp(qb: Quaternion , t: float)</span>:
-                    Lida com a interpolação linear esférica entre quaternions.
-                    Sua função é animar a rotação 3D.
-                    No construtor, o parâmetro 'qb' se refere a outra rotação quaternária.
-                    O parâmetro 't' representa a quantidade de rotação entre este quaternion (onde t é 0) e qb (onde t
-                    é 1)
-                </li>
-                <li>
-                    <span class="text-warning">setFromAxisAngle (axis : Vector3, angle : Float)</span>:
-                    Define a rotação do quatérnio especificada por um eixo e ângulo.
-                    O eixo é considerado normalizado e o ângulo dado em radianos.
-                </li>
-                <li>
-                    <span class="text-warning">setFromEuler (euler: Euler)</span>:
-                    Define a rotação do quatérnio especificada pelo ângulo de Euler.
-                </li>
-            </ul>
+        <ul class="lead">
+            <li>
+                <span class="text-warning">angleTo (q : Quaternion)</span>:
+                Retorna o ângulo entre um quatérnio e outro quatérnio q em radianos
+            </li>
+            <li>
+                <span class="text-warning">clone()</span>:
+                Cria um novo quatérnio com as mesmas propriedades de outro
+            </li>
+            <li>
+                <span class="text-warning">conjugate()</span>:
+                Retorna o conjugado rotacional de um quaternion,
+                ou seja, a mesma rotação no sentido oposto sobre o eixo rotatório.
+            </li>
+            <li>
+                <span class="text-warning">equals (v : Quaternion)</span>:
+                Compara as propriedades x, y, z e w com as de outro quatérnio v
+                para determinar se eles representam a mesma rotação.
+            </li>
+            <li>
+                <span class="text-warning">length()</span>:
+                Calcula o comprimento euclidiano (comprimento em linha reta)
+                de um quaternion, considerado como um vetor de quatro dimensões
+            </li>
+            <li>
+                <span class="text-warning">normalize()</span>:
+                Normaliza um quatérnio, isto é, calcula o quatérnio
+                que executa a mesma rotação que a dele, mas tem o comprimento igual a 1.
+            </li>
+            <li>
+                <span class="text-warning">multiplyQuaternions (a: Quaternion , b: Quaternion)</span>:
+                Realiza a multiplicação entre dois quatérnios.
+            </li>
+            <li>
+                <span class="text-warning">setFromRotationMatrix (m : Matrix4)</span>:
+                Define o componente de rotação do quatérnio a partir de uma matriz m .
+            </li>
+            <li>
+                <span class="text-warning">setFromUnitVectors (vFrom: Vector3 , vTo: Vector3)</span>:
+                Define o quatérnio de rotação necessária para
+                girar o vetor de direção vFrom para o vetor de direção vTo .
+            </li>
+            <li>
+                <span class="text-warning">slerp(qb: Quaternion , t: float)</span>:
+                Lida com a interpolação linear esférica entre quaternions.
+                Sua função é animar a rotação 3D.
+                No construtor, o parâmetro 'qb' se refere a outra rotação quaternária.
+                O parâmetro 't' representa a quantidade de rotação entre este quaternion (onde t é 0) e qb (onde t
+                é 1)
+            </li>
+            <li>
+                <span class="text-warning">setFromAxisAngle (axis : Vector3, angle : Float)</span>:
+                Define a rotação do quatérnio especificada por um eixo e ângulo.
+                O eixo é considerado normalizado e o ângulo dado em radianos.
+            </li>
+            <li>
+                <span class="text-warning">setFromEuler (euler: Euler)</span>:
+                Define a rotação do quatérnio especificada pelo ângulo de Euler.
+            </li>
+        </ul>
         </p>
     </div>
 
@@ -235,13 +235,12 @@
             ▲
         </a>
     </h4>
-    
+
     <!-- Scripts Three.js -->
     <script src="js/lib/three/three.js"></script>
-    <script src="js/threejs.js"></script>
 
     <!-- Scripts Bootstrap -->
-    <script src="js/lib/jquery-3.7.0.slim.min.js"></script>
+    <script src="js/lib/jquery-3.5.1.slim.min.js"></script>
     <script src="js/lib/popper.min.js"></script>
     <script src="js/lib/bootstrap.min.js"></script>
 
